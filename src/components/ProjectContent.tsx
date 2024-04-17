@@ -9,9 +9,9 @@ interface Props {
 
 function ProjectContent({ projects }: Props) {
   return (
-    <div className="projects-container">
-      {projects.map((project, i) => (
-        <Link key={i} href={"/"}>
+    <div id="projects" className="projects-container">
+      {projects.map((project) => (
+        <Link key={project?._id} href={"/"}>
           <div className="project">
             <div className="project-inner flex-col">
               <Image
@@ -21,8 +21,15 @@ function ProjectContent({ projects }: Props) {
                 height={350}
                 alt="project image"
               />
+
               <div className="overlay"></div>
-              <div>Hello this is the right side</div>
+              <div>
+                {project?.categories.map((item) => (
+                  <p key={item?._id}>{item?.title}</p>
+                ))}
+                <h2>{project?.title}</h2>
+                <p>{project?.description}</p>
+              </div>
             </div>
           </div>
         </Link>

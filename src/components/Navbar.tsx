@@ -11,7 +11,7 @@ function Navbar() {
     },
     {
       title: "Projects",
-      href: "/projects",
+      href: "#projects",
     },
     {
       title: "About",

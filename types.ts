@@ -13,7 +13,7 @@ export interface Project extends Base {
     mainImage: Image;
     slug: Slug;
     title: string;
-    decsription: string;
+    description: string;
 }
 
 interface Author extends Base{

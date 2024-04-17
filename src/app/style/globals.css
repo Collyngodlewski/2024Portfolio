@@ -1,6 +1,11 @@
 * {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth !important;
+}
+
+html {
+  scroll-behavior: smooth !important;
 }
 
 a {
@@ -248,11 +253,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  max-width: 1280px;
+
   margin: 0 auto;
 }
 
 .project {
+  margin: 0 auto;
+  max-width: 1280px;
   background-color: white;
   border-radius: 8px;
   transition: box-shadow 500ms;
@@ -268,13 +275,14 @@ body {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 50%;
+      width: 55%;
       height: 100%;
+      scale: 1;
       background: rgba(0, 0, 0, 0.1);
-      transition: background 500ms;
+      transition: background 500ms, scale 500ms;
     }
     .project-image {
-      width: 50%;
+      width: 55%;
       /* 
       max-height: 500px;
       min-height: 100%;
@@ -285,6 +293,16 @@ body {
 
     .popup {
       position: absolute;
+      text-align: center;
+      color: white;
+      bottom: 0;
+      visibility: hidden;
+      width: 55%;
+      opacity: 0;
+      backdrop-filter: blur(16px);
+      /* transition-delay: 500ms; */
+      transition-property: visibility;
+      transition: opacity 200ms ease-in 400ms;
     }
   }
 
@@ -293,7 +311,13 @@ body {
 
     .project-inner {
       .overlay {
+        scale: 1.05;
         background: rgba(0, 0, 0, 0);
+      }
+      .popup {
+        visibility: visible;
+        scale: 1.05;
+        opacity: 1;
       }
       .project-image {
         scale: 1.05;

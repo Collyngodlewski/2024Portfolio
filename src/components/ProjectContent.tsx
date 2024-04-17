@@ -13,18 +13,17 @@ function ProjectContent({ projects }: Props) {
       {projects.map((project, i) => (
         <Link key={i} href={"/"}>
           <div className="project">
-            <div className="project-inner">
+            <div className="project-inner flex-col">
               <Image
                 className="project-image"
                 src={urlFor(project?.mainImage).url()}
-                width={600}
+                width={500}
                 height={350}
                 alt="project image"
               />
               <div className="overlay"></div>
-              <div className="popup">Read More</div>
+              <div>Hello this is the right side</div>
             </div>
-            <div>Hello this is the right side</div>
           </div>
         </Link>
       ))}

@@ -5,15 +5,11 @@ import { groq } from "next-sanity";
 import { client } from "@/lib/createClient";
 import ProjectContent from "@/components/ProjectContent";
 
-const query = groq`*[_type == 'post']{
-  ...,
-  author->,
-    categories[]->
-} | order(_createdAt asc)`;
+const query = groq`*[_type == "post"]|order(publishedAt asc)`;
 
 export default async function Home() {
   const projects = await client.fetch(query);
-  // console.log(projects);
+  console.log(projects);
   return (
     <main>
       <Hero />
